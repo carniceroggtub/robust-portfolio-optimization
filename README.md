@@ -403,14 +403,7 @@ This is important because the asset return distributions exhibit fat tails, maki
 ## Project Structure
 
 ```text
-quant_portfolio_project/
-│
-├── data/
-│   ├── adjusted_close.csv
-│   ├── daily_returns.csv
-│   ├── asset_summary_stats.csv
-│   ├── return_correlation.csv
-│   └── annual_covariance.csv
+robust-portfolio-optimization/
 │
 ├── notebooks/
 │   ├── 01_data_check.ipynb
@@ -421,20 +414,23 @@ quant_portfolio_project/
 │   └── 06_final_benchmark.ipynb
 │
 ├── outputs/
-│   ├── oos_strategy_metrics.csv
-│   ├── final_strategy_comparison.csv
-│   ├── transaction_cost_robustness.csv
-│   ├── estimation_window_robustness.csv
+│   ├── 01_oos_wealth.png
+│   ├── 02_oos_drawdowns.png
+│   ├── 03_risk_return.png
+│   ├── 04_average_weights.png
+│   ├── 05_transaction_cost_sensitivity.png
 │   ├── 06_final_risk_return.png
 │   ├── 07_final_sharpe.png
 │   └── 08_final_wealth.png
 │
-├── report/
-│   └── project_scope.md
-│
+├── .env.example
 ├── .gitignore
-└── README.md
+├── README.md
+└── requirements.txt
 ```
+
+Raw Tiingo data and local virtual-environment files are intentionally excluded from the public repository. The notebooks reproduce the required local data files when run with a valid Tiingo API key.
+
 
 ## Technologies
 
@@ -460,7 +456,7 @@ Optimization is implemented using constrained nonlinear optimization with SciPy'
 
 API credentials are stored locally in a `.env` file and excluded from version control through `.gitignore`.
 
-The raw API token is not included in the repository.
+The repository includes `.env.example` to show the required environment-variable format without exposing the real API token. Raw Tiingo market-data files are also excluded from version control and are generated locally when the notebooks are run.
 
 The main workflow is:
 
